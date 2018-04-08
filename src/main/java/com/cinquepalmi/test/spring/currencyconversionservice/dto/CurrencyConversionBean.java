@@ -6,7 +6,7 @@ public class CurrencyConversionBean {
 
 	private Long id;
 	private String from, to;
-	private BigDecimal quantity, convertionMultiple, totalCalculatedAmount;
+	private BigDecimal quantity, conversionMultiple, totalCalculatedAmount;
 
 	public Long getId() {
 		return id;
@@ -32,17 +32,17 @@ public class CurrencyConversionBean {
 	public void setQuantity(BigDecimal quantity) {
 		this.quantity = quantity;
 	}
-	public BigDecimal getConvertionMultiple() {
-		return convertionMultiple;
-	}
-	public void setConvertionMultiple(BigDecimal convertionMultiple) {
-		this.convertionMultiple = convertionMultiple;
-	}
 	public BigDecimal getTotalCalculatedAmount() {
 		return totalCalculatedAmount;
 	}
 	public void setTotalCalculatedAmount(BigDecimal totalCalculatedAmount) {
 		this.totalCalculatedAmount = totalCalculatedAmount;
+	}
+	public BigDecimal getConversionMultiple() {
+		return conversionMultiple;
+	}
+	public void setConversionMultiple(BigDecimal conversionMultiple) {
+		this.conversionMultiple = conversionMultiple;
 	}
 	
 }
