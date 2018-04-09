@@ -7,6 +7,7 @@ public class ConversionCurrencyBean {
 	private Long id;
 	private String from;
 	private String to;
+	private Integer port;
 	private BigDecimal conversionMultiple; 
 	private BigDecimal quantity;
 	private BigDecimal totalAmountCalcolated;
@@ -46,6 +47,12 @@ public class ConversionCurrencyBean {
 	}
 	public void setTotalAmountCalcolated(BigDecimal totalAmountCalcolated) {
 		this.totalAmountCalcolated = totalAmountCalcolated;
+	}
+	public Integer getPort() {
+		return port;
+	}
+	public void setPort(Integer port) {
+		this.port = port;
 	}
 	
 }

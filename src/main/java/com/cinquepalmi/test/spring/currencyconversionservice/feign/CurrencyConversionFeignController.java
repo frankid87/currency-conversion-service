@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinquepalmi.test.spring.currencyconversionservice.dto.CurrencyConversionBean;
+import com.cinquepalmi.test.spring.currencyconversionservice.dto.ConversionCurrencyBean;
 
 @RestController
 public class CurrencyConversionFeignController {
@@ -16,12 +16,12 @@ public class CurrencyConversionFeignController {
 	private CurrencyExchangeServiceProxy proxy;
 	
 	@GetMapping("/currency-converter-feign/from/{from}/to/{to}/quantity/{quantity}")
-	public CurrencyConversionBean calculateConversion(
+	public ConversionCurrencyBean calculateConversion(
 			@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity){
 		
-		CurrencyConversionBean bean = proxy.retrieveExchangeValue(from, to);
+		ConversionCurrencyBean bean = proxy.retrieveExchangeValue(from, to);
 		bean.setQuantity(quantity);
-		bean.setTotalCalculatedAmount(quantity.multiply(bean.getConversionMultiple()));
+		bean.setTotalAmountCalcolated(quantity.multiply(bean.getConversionMultiple()));
 		return bean;
 	}
 }
