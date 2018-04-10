@@ -7,9 +7,33 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.cinquepalmi.test.spring.currencyconversionservice.dto.ConversionCurrencyBean;
 
-@FeignClient(name="currecy-exchange-service") // 
-//@FeignClient(name="currecy-exchange-service", url="localhost:8000") senza ribbon bisonga specificare url
-@RibbonClient(name="currecy-exchange-service")
+/*
+ * Feign
+ * 
+ * la property url specifica url microservizio con cui interagire
+ */
+//@FeignClient(name="currecy-exchange-service", url="localhost:8000")
+
+
+/*
+ * Ribbon e Feign
+ * 
+ * aggiungere nel file di properties currecy-exchange-service.ribbon.listOfServers che indica l'elenco delle istanze attive separate da ,
+ */
+//@FeignClient(name="currecy-exchange-service")
+//@RibbonClient(name="currecy-exchange-service")
+
+/*
+ * Ribbon, Feign e Eureka
+ * 
+ * l'attributo name deve corrispondere al nome con la quale l'applicazione è registrtata su Eureka
+ */
+//@FeignClient(name="CURRENCY-EXCHANGE-SERVICE") 
+//@RibbonClient(name="CURRENCY-EXCHANGE-SERVICE")
+
+
+@FeignClient(name="CURRENCY-EXCHANGE-SERVICE") 
+@RibbonClient(name="CURRENCY-EXCHANGE-SERVICE")
 public interface CurrencyExchangeServiceProxy {
 
 	@GetMapping("/currency-exchange/from/{from}/to/{to}")
